@@ -1,0 +1,66 @@
+
+<aside id="sidebar">
+     <!--分类-->
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list">
+
+{% for foo in rstic %}
+            <li class="category-list-item">
+              <a class="category-list-link" href="/category/{{ foo.stic }}">{{ foo.stic__sname }}</a>
+              <span class="category-list-count">{{ foo.c }}</span>
+            </li>
+{% endfor %}
+      </ul>
+      </div>
+  </div>
+     <!--归档-->
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list">
+
+
+{% for r_time in r_timedata %}
+            <li class="archive-list-item">
+              <a class="archive-list-link" href="/archive/{{ r_time.0|date:'Y' }}/{{ r_time.0|date:'m'   }}">{{ r_time.0|date:'Y-m' }}</a>
+              <span class="archive-list-count">{{ r_time.1 }}</span>
+            </li>
+{% endfor %}
+      </ul>
+    </div>
+  </div>
+
+    <!--近期文章-->
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+
+
+{% for rst in rpost_list %}
+            <li>
+                <a href="/post/{{ rst.id }}" target="_blank">{{ rst.title|truncatechars:'8' }}</a>
+            </li>
+
+{% endfor %}
+
+
+      </ul>
+    </div>
+  </div>
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+          <li>
+            <a href="http://www.hao123.com/" target="_blank">360</a>
+          </li>
+          <li>
+            <a href="http://www.baidu.cn/" target="_blank">百度</a>
+          </li>
+      </ul>
+    </div>
+  </div>
+</aside>
